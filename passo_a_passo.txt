@@ -1,0 +1,86 @@
+1 - Criar pasta com nome do projeto no C:
+2 - Acessar o Cmder e dar um comando cucumber --init
+3 - Criar a Gemfile e colocar as gem´s do Ruby que utilizara no projeto 
+4 - Dar o comando bundler install no CMDER
+4b - Preencher configurações do arquivo ENV
+5 - Criar dentro da pasta feature uma pasta ".feature" nesta pasta estam os comandos do BDD.
+6 - Descrever o cenario dentro do arquivo home feature, dendtro do arquivo declarmos o idioma e na seguencia descrevemos os cenarios
+7 - Rodar o comando cucumber no CMDER "cucumber"
+8 - No Cmder o cucumber vai gerar a estrutura dos cenários para que possamos copiar do cmder e colocar no dentro da pasta step_definition
+9 - Todos os nome utilizados na Feature na criação dos steps do gherkin (Dado, Quando, Então) tem que estar com o mesma descrição arquivo (acesso_steps) da pasta step_definition
+10 - Utilizamos a tecnica de page objects, criamos uma class chamada AcessoHome que será instanciada pela função "GO" no arquivo acesso_steps.
+10b - Sempre  que criar uma classe é necessario inicia-la, para isso é necessario criar um arquivo hooks dentro da pasta Support onde podemos instanicar todas as classes, organizando o que tem que ser after ou before
+11 - executar no cmder co comando cucumber 
+12 - Entrar no site in clicar com o botão direito do mouse escolher a opção insecionar, passar o cursor pelo codigo para identificar as classes e ID´s de cadas elemento no html
+     uma forma ajudar é clicar na opção console do bowser digitar o comando ex: 
+      pagina web a ser inspecionada - https://training-wheels-protocol.herokuapp.com/secure - inspecionar a mensagem.
+          - $('#flash'); - este comando confirma se a mensagem é essa mesmos. 
+          - 
+
+$('#flash').text(); - este comando retorna o conteudo da mensagem no console do chrome - Mensagem retornada (     Olá, Tony Stark. Você acessou a área logada!)
+             (esse exemplo esta no video 3 mais ou menos no minuto 07:00 de uma aula de 12 minutos (andamento 10%)do modulo capybara do qafullstack)
+     $('.xxx') para classes e se for ID´s $('#xxx') assim que identificar os elementos, criar um metodo dentro do arquivo acesso_pages e utilizar o comando find(#flash) no VS Code
+      obs. quando estamos inspecionando no chrome no exemplo assima podemos utiliar para os campos do video tanto o username ou o userid
+     
+13 - Para steps de resultado esperado (Então) utilizamos os comandos (expect(@valida_hp.valida_tag).to have_text valor_esperado) 
+    expect - é um comando do RSPEC onde ele espera receber um determinado valor
+    @valida_hp.valida_tag - nos criamos um arquivo novo para validar a pagina e dentro dele uma classe e um metodo para deixar a validação separado da class AcessoPages.
+14 - Com isso pelo nosso exemplo concluimos os testes de acessar a pagina e clicar em um link e validar um texto na pagina.
+     Para continuarmos com novas validações teremos que criar um novo cenário dentro do arquivo feature chamado (Acessar Relatorios automatizados) 
+
+  
+15 - Para pesquisar um seletor que comece com uma palavra voce precisa no comando "^=" ex: $('img[alt^=Pantera'); no JQUERY no chrome.
+
+16 - Para pesquisar um seletor que termina com uma palavra voce precisa no comando "$=" ex: $('img[alt$=Aranha'); no JQUERY no chrome.
+
+17 - Para pesquisar um seletor que contem  com uma palavra voce precisa no comando "*=" ex: $('img[alt*=Aranha'); no JQUERY no chrome.
+
+18 - Para criar um array de simbolos eu uso %i ex: (teclas = %i[tab escape space enter shift control alt])
+
+19 - Para criar um array de simbolos eu uso %i ex: (letras = %w[a s d f g h j k l])
+
+20 - git clone https://github.com/papitoio/jenkins4testers - este comando tem que ser executado no cmder para copiar o projeto para pasta testcamp
+
+21 - https://github.com/rajatthareja/ReportBuilder
+
+
+22 - Como subir um projeto para o Github
+	- Criar um depositorio no Git
+	- acessar Git bach
+	- acessar a pasta onde esta seu arquivo 
+	- git init
+	- git status
+	- git add *
+	- git status
+	- git commit -m "Automatção inserindo projeto inicial QaFullStack"
+	- Pegar o endereço no github na linha gitremote - git remote add origin https://github.com/edimilsoncandido1972/AutomacaoRuby  (sem o .git)
+	- git push -u origin master - Este comando empurra o projeto para nosso diretorio no github
+	- deu erro (*** Please tell me who you are.
+
+			Run
+
+			  git config --global user.email "you@example.com"
+			  git config --global user.name "Your Name"
+
+			to set your account's default identity.
+			Omit --global to set the identity only in this repository.
+
+			fatal: unable to auto-detect email address (got 'Edimilson@DESKTOP-9QK4G0Q.(none)')
+			) vou  configurar/adicionar o email e usuario na conifuração do Git 
+		- git config --global user.name "edimilsoncandido1972"
+		- git config --global user.email "edimilson.candido@gmail.com"
+		- git config --global user.email
+		- git config --global user.name
+
+	- para o erro(error: src refspec master does not match any) a solução foi:
+		- after this, if you still having that error, follow these steps again
+ 			git add .
+			git commit -m 'message'
+			git push -u origin master
+ 
+		that worked for me and Hope it will help anyone
+	
+    
+
+
+
